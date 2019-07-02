@@ -1,0 +1,71 @@
+CRUNCH(1)                                      General Commands Manual                                      CRUNCH(1)
+
+NAME
+       crunch - generate wordlists from a character set
+
+AUTHOR
+       SOMU BARUA
+	
+SYNOPSIS
+       crunch <min-len> <max-len> [<charset string>] [options]
+
+DESCRIPTION
+       Crunch can create a wordlist based on criteria you specify.  The output from crunch can be sent to the file.  
+
+The required parameters are:
+
+       min-len
+              The minimum length string you want crunch to start at.  This option is  required  even  for  parameters
+              that won't use the value.
+
+       max-len
+              The  maximum length string you want crunch to end at.  This option is required even for parameters that
+              won't use the value.
+
+OPTIONS
+       -d    This option gives the dataset to the function that is to be used. The parameters can be :
+	     num:    	   This will povide the data set all the numeric digits "0123456789".
+	     lower:  	   This will povide the data set all lower alphabets "qwertyuiopasdfghjklzxcvbnm".
+	     upper:        This will povide the data set all UPPER alphabets "QWERTYUIOPASDFGHJKLZXCVBNM".
+	     lownum: 	   This will povide the data set all lower alphabets and the numerics. 
+	     upnum:  	   This will povide the data set all UPPER alphabets and the numerics.
+	     all[DEFAULT]: This will povide the data set all UPPER alphabets, lower alphabets and the numerics.	
+
+	Ex: crunch 2 3 -d num 
+       
+
+       -ds    This option is used to give a  custom  dataset  to crunch it. This  option is followed by  the string  
+	      contaning all the character you want.
+
+	Ex: crunch 2 3 -ds qwer3456
+
+        
+       -r :
+              This option is used when you have to pass a custom incomplete string and perform combinations to get all
+              the possible string. This option is followed by a custom string. "@" is used to represent the missing 
+	      character in a string.
+	NOTE: The min-length, max-length and count of "@" in string should all be same.
+
+	Ex: crunch 3 3 -r a@u@@m 
+
+EXAMPLES
+       Example 1
+       crunch 1 8
+       crunch will create a wordlist that starts at 0 and ends at ZZZZZZZZ
+
+       Example 2
+       crunch 1 6 -d num
+       crunch will create a wordlist using the character set "0123456789" that starts at 0 and ends at 999999.
+
+       Example 3
+       crunch 1 6 -ds qwert
+       crunch will create a wordlist using the character set "qwert" that starts at q and ends at tttttt.
+
+       Example 4
+       crunch 3 3 -d num -r a@u@@m 
+       crunch will use the numeric dataset "0123456789"  and make a every possible word replaceing the in given
+       string.
+
+
+----------------------------------------------------END OF FILE-----------------------------------------------------
+

@@ -1,0 +1,14 @@
+crunch version 3.6
+
+Crunch can create a wordlist based on criteria you specify.  The output from crunch can be sent to file.
+
+Usage: crunch <min> <max> [options]
+where min and max are numbers
+
+Ex: crunch 2 3 -d num
+
+Please refer to the man page for instructions and examples on how to use crunch.
+To get to the MAN page  type "crunch --help".
+
+
+Devloped by Somu Barua.
